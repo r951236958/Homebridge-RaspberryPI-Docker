@@ -1,0 +1,60 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "description": "This is an example configuration file. You can use this as a template for creating your own configuration file containing devices you actually own.",
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8080,
+            "auth": "form",
+            "theme": "blue",
+            "tempUnits": "c",
+            "platform": "config"
+        },
+        {
+            "platform": "DysonPlatform",
+            "name": "DysonPlatform",
+            "accessories": [
+                {
+                    "ip": "192.168.0.131",
+                    "displayName": "電扇",
+                    "serialNumber": "DYSON-SY1-TW-JNA1846A-455",
+                    "email": "r951236958@gmail.com",
+                    "password": "ezdrtoxa"
+                }
+            ]
+        },
+        {
+            "platform": "MiAqaraPlatform",
+            "gateways": {
+                "7811DC6D5B47": "3E73E344FC174A49"
+            },
+            "defaultValue": {
+                "158d00022af06b": {
+                    "TemperatureAndHumiditySensor_TemperatureSensor": {
+                        "name": "TemperatureSensor"
+                    },
+                    "TemperatureAndHumiditySensor_HumiditySensor": {
+                        "name": "HumiditySensor"
+                    }
+                },
+                "0187d6243e81955753db9c515add93d5": {
+                    "Gateway_Lightbulb": {
+                        "name": "彩燈"
+                    },
+                    "Gateway_LightSensor": {
+                        "name": "感應夜燈"
+                    },
+                    "Gateway_Switch_JoinPermission": {
+                        "name": "允許連入"
+                    }
+                }
+            }
+        }
+    ]
+}
