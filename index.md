@@ -6,26 +6,27 @@
 
 開啟終端機並執行以下指令:
 
+## 1-1. 由 [oznu/homebridge][docker-homebridge-link] 教學文件所示:
+
 ```
-~~# Add Docker’s official GPG key:~~
-~~curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -~~
+# Add Docker’s official GPG key:
+curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
 
-~~# Use the following command to set up the stable repository:~~
-~~echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list~~
+# Use the following command to set up the stable repository:
+echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
-~~# Update sources and install docker~~
-~~sudo apt-get update~~
-~~sudo apt-get install docker-ce~~
+# Update sources and install docker
+sudo apt-get update
+sudo apt-get install docker-ce
 ```
 
 ## 1-2. 安裝Docker方式二
 
->因第一種安裝方式失敗
->於是新增第二種Docker的安裝方式
+>不知道什麼原因，我無法使用第1-1. 方式無法順利完成 ```docker-ce``` 的安裝
+>後來在 `Docker` 官方文檔中找到另一個方式，所以新增第1-2. 方式順利完成 ```docker-ce``` 的安裝
 
 ```
-# 從Docker官方文檔提供之方法，自Docker官方庫網址，垃取get-docker.sh檔案
-# 下載後執行腳本安裝即可
+# 從Docker官方網址，獲取get-docker.sh自動安裝腳本檔案，下載後執行腳本即可完成
 curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
@@ -41,13 +42,13 @@ sudo usermod -aG docker volumio && logout
 
 ## 2. 安裝Docker Compose
 
-有了 [Docker Compose][docker-homebridge-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
+有了 [Docker Compose][docker-compose-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
 
 ```
 sudo apt-get -y install python-setuptools && sudo easy_install pip  && sudo pip install docker-compose
 ```
 
-## 3. 創建一個Docker Compose主要檔案
+## 3. 建立一個Docker Compose主要檔案
 
 在本例中使用者資料夾位於 ```volumio``` 資料夾, 依照以下指示建立新資料夾並且進到該資料夾中.
 
@@ -121,7 +122,7 @@ docker-compose restart homebridge
 
 當以上都已經正常啟動也顯示了 `打開家庭APP來執行配對` , 那就打開它並且對準QR Code掃描吧.
 
-#### 預設配對碼: `**031-45-154**`
+#### 預設配對碼: `031-45-154`
 
 如果APP顯示無法掃描, 那就手動輸入配對碼吧.
 
@@ -129,7 +130,7 @@ docker-compose restart homebridge
 
 版本依然是由 [oznu/homebridge][docker-homebridge-link] 提供的最新版本作為更新.
 
-下載最後一版 [oznu/homebridge][docker-homebridge-link] 的image檔案:
+執行指令找到最後一版 [oznu/homebridge][docker-homebridge-link] 的image檔案:
 
 ```
 docker-compose pull homebridge
@@ -149,5 +150,6 @@ docker-compose up -d
 docker-compose exec homebridge sh
 ```
 
+[docker-compose-link]: https://docs.docker.com/compose/overview/
 [docker-homebridge-link]: https://hub.docker.com/r/oznu/homebridge/
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge.wiki.git
