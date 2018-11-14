@@ -23,7 +23,7 @@ sudo apt-get install docker-ce
 ## 1-2. 安裝Docker方式二
 
 >不知道什麼原因，我無法使用第1-1. 方式無法順利完成 ```docker-ce``` 的安裝
->後來在 `Docker` 官方文檔中找到另一個方式，所以新增第1-2. 方式順利完成 ```docker-ce``` 的安裝
+>後來在 `Docker`  [官方文檔][install-docker-ce-link] 中找到另一個方式，所以新增 `1-2. 方式二` 順利完成安裝
 
 ```
 # 從Docker官方網址，獲取get-docker.sh自動安裝腳本檔案，下載後執行腳本即可完成
@@ -150,6 +150,7 @@ docker-compose up -d
 docker-compose exec homebridge sh
 ```
 
+[install-docker-ce-link]: https://docs.docker.com/install/linux/docker-ce/debian/#install-docker-ce-1
 [docker-compose-link]: https://docs.docker.com/compose/overview/
 [docker-homebridge-link]: https://hub.docker.com/r/oznu/homebridge/
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge.wiki.git
