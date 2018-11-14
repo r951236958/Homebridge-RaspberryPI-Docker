@@ -1,4 +1,4 @@
-# Homebridge-RaspberryPI-Docker
+# RaspberryPi-Docker-Homebridge
 
 Homebridge On RaspberryPi &amp; Docker
 
