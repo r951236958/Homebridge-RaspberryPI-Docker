@@ -7,19 +7,31 @@
 開啟終端機並執行以下指令:
 
 ```
-# Add Docker’s official GPG key:
-curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
+~~# Add Docker’s official GPG key:~~
+~~curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -~~
 
-# Use the following command to set up the stable repository:
-echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
+~~# Use the following command to set up the stable repository:~~
+~~echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list~~
 
-# Update sources and install docker
-sudo apt-get update
-sudo apt-get install docker-ce
+~~# Update sources and install docker~~
+~~sudo apt-get update~~
+~~sudo apt-get install docker-ce~~
 ```
 
-將樹莓派使用者 ```volumio``` 新增到 ```docker``` 群組 
->因本次系統使用為Volumio.
+## 1-2. 安裝Docker方式二
+
+>因第一種安裝方式失敗
+>於是新增第二種Docker的安裝方式
+
+```
+# 從Docker官方文檔提供之方法，自Docker官方庫網址，垃取get-docker.sh檔案
+# 下載後執行腳本安裝即可
+curl -fsSL get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+將樹莓派使用者 ```username``` 新增到 ```docker``` 群組中 
+>因樹莓派安裝系統為 `Volumio` , 使用者為 `volumio`
 
 ```
 sudo usermod -aG docker volumio && logout
@@ -91,7 +103,9 @@ docker-compose logs -f
 
 ## 5. 管理Homebridge
 
-在本地電腦端開啟瀏覽器, 輸入下列網址並前往 ```http://<樹莓派ip>:8080```, 例: 我安裝於Volumio系統中, 我可以透過 ```http://volumio.local:8080``` 打開Homebridge管理頁面, 在此管理頁面中無論是安裝, 移除或升級任何外掛, 都務必要確保 ```config.json``` 檔案是正確的, 並且要重啟Homebridge.
+在本地電腦端開啟瀏覽器, 輸入下列網址並前往 ```http://<樹莓派ip>:8080```, 例: 我安裝於Volumio系統中, 我可以透過 ```http://volumio.local:8080``` 打開Homebridge管理頁面, 在此管理頁面中無論是安裝, 移除或升級任何外掛, 都務必要確保 ```config.json``` 檔案的正確性, 並且無論做任一項動作, 都必須將Homebridge重啟.
+
+預設使用者名稱 `admin` 與密碼 `admin` 輸入後即可登入, 一定要重啟Homebridge才能使 ```config.json``` 所做修改的設定生效. 
 
 可以透過執行下列指令來重啟或啟動這個容器:
 
