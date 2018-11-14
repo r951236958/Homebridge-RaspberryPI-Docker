@@ -30,6 +30,8 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
+![Octocat](img/install_docker-ce.png)
+
 將樹莓派使用者 ```username``` 新增到 ```docker``` 群組中 
 >因樹莓派安裝系統為 `Volumio` , 使用者為 `volumio`
 
@@ -100,6 +102,8 @@ docker-compose logs -f
 ```
 
 你的Homebridge ```config.json``` , 安裝外掛plugins時, 要能於 `家庭APP` 存取應用, 必須將外掛安裝於 ```config``` 資料夾中.
+
+![Octocat](img/homebridge.png)
 
 ## 5. 管理Homebridge
 
