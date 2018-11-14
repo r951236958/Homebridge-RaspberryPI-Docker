@@ -1,5 +1,4 @@
 ---
-layout: Homebridge-RasspberryPI-Docker
 ---
 # 在樹莓派上部署Docker並運行Homebridge
 
