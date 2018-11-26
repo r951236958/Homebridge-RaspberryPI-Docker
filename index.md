@@ -13,7 +13,9 @@
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
 
 # Use the following command to set up the stable repository:
-echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
+echo "deb [arch=armhf] https://download.docker.com/linux/debian \
+     $(lsb_release -cs) stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list
 
 # Update sources and install docker
 sudo apt-get update
