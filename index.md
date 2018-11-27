@@ -12,12 +12,12 @@
 
 **安裝流程**
 
-## 1. [移除舊版本Docker](#1)
-## 2. [安裝Docker](#2)
-## 3. [安裝Docker Compose](#3)
-## 4. [建立一個Docker Compose主要檔案](#4)
-## 5. [啟動Homebridge](#5)
-## 6. [管理Homebridge](#6)
+1. [移除舊版本Docker](#1)
+2. [安裝Docker](#2)
+3. [安裝Docker Compose](#3)
+4. [建立一個Docker Compose主要檔案](#4)
+5. [啟動Homebridge](#5)
+6. [管理Homebridge](#6)
 
 ## 資料來源:
 
@@ -38,15 +38,15 @@ sudo apt-get remove docker docker-engine docker.io
 
 
 
-## 2-1. 使用Docker官方文檔中方式安裝:
+## 2-1. Docker官方安裝方式:
 
-1. 更新apt套件
+2.1. 更新apt套件
 
 ```
 sudo apt-get update
 ```
 
-2. 經由 ```https``` 使用 ```apt``` 下載:
+經由 ```https``` 使用 ```apt``` 下載:
 
 ```
 sudo apt-get install \
@@ -58,7 +58,7 @@ sudo apt-get install \
 ```
 
 
-3. 新增GPG密鑰簽署:
+2.2. 新增GPG密鑰簽署:
 
 ```
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
@@ -74,7 +74,7 @@ uid                  Docker Release (CE deb) <docker@docker.com>
 sub   4096R/F273FCD8 2017-02-22
 ```
 
-4. Use the following command to set up the stable repository:
+2.3. 新增來源:
 
 >注意: 以下 ```lsb_release -cs``` 子命令將返回Debian發行版的名稱, 如: ```jessie``` .
 
@@ -84,7 +84,7 @@ echo "deb [arch=armhf] https://download.docker.com/linux/debian \
     sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
-5. Update sources and install docker
+2.4. 更新來源開始安裝:
 
 ```
 sudo apt-get update
