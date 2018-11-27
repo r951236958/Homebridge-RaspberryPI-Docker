@@ -12,12 +12,12 @@
 
 **安裝流程**
 
-1. [移除舊版本Docker](## 1. 移除舊版本Docker)
-2. [安裝Docker](## 2. 安裝Docker)
-3. 安裝Docker Compose
-4. 建立一個Docker Compose主要檔案
-5. 啟動Homebridge
-6. 管理Homebridge
+## 1. 移除舊版本Docker(#1)
+1. 安裝Docker
+2. 安裝Docker Compose
+3. 建立一個Docker Compose主要檔案
+4. 啟動Homebridge
+5. 管理Homebridge
 
 ## 資料來源:
 
@@ -26,7 +26,7 @@
 - 由[oznu/homebridge]發佈的[docker-homebridge-link]安裝Homebridge.
 - 並且其[Wiki][docker-homebridge-wiki]中 Homebridge on Raspberry Pi 說明安裝流程.
 
-## 1. 移除舊版本Docker
+<h2 id="1">1. 移除舊版本Docker</h2> 
 
 開啟終端機並執行以下指令:
 
