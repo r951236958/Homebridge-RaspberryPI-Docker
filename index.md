@@ -14,6 +14,10 @@
 
 1. [移除舊版本Docker](#1)
 2. [安裝Docker](#2)
+   2.1. [更新apt套件](#2.1)
+   2.2. [新增GPG密鑰簽署](#2.2)
+   2.3. [新增來源](#2.3)
+   2.4. [更新來源開始安裝](#2.4)
 3. [安裝Docker Compose](#3)
 4. [建立一個Docker Compose主要檔案](#4)
 5. [啟動Homebridge](#5)
@@ -36,11 +40,9 @@ sudo apt-get remove docker docker-engine docker.io
 
 <h2 id="2">2. 安裝Docker</h2>
 
+`安裝方式一`
 
-
-## 2-1. Docker官方安裝方式:
-
-2.1. 更新apt套件
+<h3 id="1.1">2.1. 更新apt套件</h3>
 
 ```
 sudo apt-get update
@@ -58,7 +60,7 @@ sudo apt-get install \
 ```
 
 
-2.2. 新增GPG密鑰簽署:
+<h3 id="2.2">2.2. 新增GPG密鑰簽署</h3>
 
 ```
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
@@ -74,7 +76,7 @@ uid                  Docker Release (CE deb) <docker@docker.com>
 sub   4096R/F273FCD8 2017-02-22
 ```
 
-2.3. 新增來源:
+<h3 id="2.3">2.3. 新增來源</h3>
 
 >注意: 以下 ```lsb_release -cs``` 子命令將返回Debian發行版的名稱, 如: ```jessie``` .
 
@@ -84,16 +86,16 @@ echo "deb [arch=armhf] https://download.docker.com/linux/debian \
     sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
-2.4. 更新來源開始安裝:
+<h3 id="2.4">2.4. 更新來源開始安裝</h3>
 
 ```
 sudo apt-get update
 sudo apt-get install docker-ce
 ```
 
-## 2-2. 安裝Docker方式二
+`安裝方式二`
 
->不知道什麼原因，我無法使用第2-1. 方式無法順利完成 **docker-ce** 的安裝
+>不知道什麼原因，我無法使用 `安裝方式一` 正常地完成 **docker-ce** 的安裝
 >後來在 `Docker`  [官方文檔][docker-ce-link] 中找到另一個方式，所以新增 `1-2. 方式二` 順利完成安裝
 
 ```
