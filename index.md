@@ -20,7 +20,7 @@
    - [2.4. 更新來源開始安裝](#2.4)
 * [3. 安裝Docker Compose](#3)
 * [4. 建立一個Docker Compose主要檔案](#4)
-* [5. Ω啟動Homebridge](#5)
+* [5. 啟動Homebridge](#5)
 * [6. 管理Homebridge](#6)
 
 ## 資料來源:
