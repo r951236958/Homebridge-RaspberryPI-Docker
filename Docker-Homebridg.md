@@ -2,66 +2,20 @@
 ---
 # 在樹莓派上部署Docker並運行Homebridge
 
-## 1. 移除舊版本Docker
-
-```
-sudo apt-get remove docker docker-engine docker.io
-```
-
 ## 1. 安裝Docker
 
 開啟終端機並執行以下指令:
 
 ## 1-1. 由 [oznu/homebridge][docker-homebridge-link] 教學文件所示:
 
-
-1. 更新apt套件
-
 ```
-sudo apt-get update
-```
-
-2. 經由 ```https``` 使用 ```apt``` 下載:
-
-```
-sudo apt-get install \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     gnupg2 \
-     software-properties-common
-```
-
-
-3. Add Docker’s official GPG key:
-
-```
+# Add Docker’s official GPG key:
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
-```
 
-透過帶有字串 ```9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88``` 來驗證密鑰
+# Use the following command to set up the stable repository:
+echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
-```
-sudo apt-key fingerprint 0EBFCD88
-pub   4096R/0EBFCD88 2017-02-22
-      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid                  Docker Release (CE deb) <docker@docker.com>
-sub   4096R/F273FCD8 2017-02-22
-```
-
-4. Use the following command to set up the stable repository:
-
->注意: 以下 ```lsb_release -cs``` 子命令將返回Debian發行版的名稱, 如: ```jessie``` .
-
-```
-echo "deb [arch=armhf] https://download.docker.com/linux/debian \
-     $(lsb_release -cs) stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list
-```
-
-5. Update sources and install docker
-
-```
+# Update sources and install docker
 sudo apt-get update
 sudo apt-get install docker-ce
 ```
@@ -79,8 +33,8 @@ sudo sh get-docker.sh
 
 ![Octocat](img/install_docker-ce.png)
 
->在群組 ```docker``` 新增使用者 ```username``` . 
->因本次系統使用 ```Volumio``` 系統, 而使用者名稱為 `volumio`
+將樹莓派使用者 ```username``` 新增到 ```docker``` 群組中 
+>因樹莓派安裝系統為 `Volumio` , 使用者為 `volumio`
 
 ```
 sudo usermod -aG docker volumio && logout
@@ -166,9 +120,9 @@ docker-compose restart homebridge
 
 ### 與iOS的家庭APP連結
 
-當以上都已經正常啟動也顯示了 ```打開家庭APP來執行配對``` , 那就打開它並且對準QR Code掃描吧.
+當以上都已經正常啟動也顯示了 `打開家庭APP來執行配對` , 那就打開它並且對準QR Code掃描吧.
 
-#### 預設配對碼: ```031-45-154```
+#### 預設配對碼: `031-45-154`
 
 如果APP顯示無法掃描, 那就手動輸入配對碼吧.
 
@@ -176,7 +130,7 @@ docker-compose restart homebridge
 
 版本依然是由 [oznu/homebridge][docker-homebridge-link] 提供的最新版本作為更新.
 
-執行指令在 [oznu/homebridge][docker-homebridge-link] 提供的image檔案中找到最新版本:
+執行指令找到最後一版 [oznu/homebridge][docker-homebridge-link] 的image檔案:
 
 ```
 docker-compose pull homebridge
