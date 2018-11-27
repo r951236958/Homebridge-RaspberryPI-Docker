@@ -12,12 +12,12 @@
 
 **安裝流程**
 
-1. 移除舊版本Docker[1]
-2. 安裝Docker[2]
-3. 安裝Docker Compose[3]
-4. 建立一個Docker Compose主要檔案[4]
-5. 啟動Homebridge[5]
-6. 管理Homebridge[6]
+1. 移除舊版本Docker[]
+2. 安裝Docker[]
+3. 安裝Docker Compose[]
+4. 建立一個Docker Compose主要檔案[]
+5. 啟動Homebridge[]
+6. 管理Homebridge[]
 
 ## 資料來源:
 
@@ -26,7 +26,7 @@
 - 由[oznu/homebridge]發佈的[docker-homebridge-link]安裝Homebridge.
 - 並且其[Wiki][docker-homebridge-wiki]中 Homebridge on Raspberry Pi 說明安裝流程.
 
-## [1]. 移除舊版本Docker
+## [1. 移除舊版本Docker]
 
 開啟終端機並執行以下指令:
 
@@ -34,7 +34,7 @@
 sudo apt-get remove docker docker-engine docker.io
 ```
 
-## [2]. 安裝Docker
+## [2. 安裝Docker]
 
 
 
@@ -111,7 +111,7 @@ sudo sh get-docker.sh
 sudo usermod -aG docker volumio && logout
 ```
 
-## [3]. 安裝Docker Compose
+## [3. 安裝Docker Compose]
 
 有了 [Docker Compose][docker-compose-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
 
@@ -119,7 +119,7 @@ sudo usermod -aG docker volumio && logout
 sudo apt-get -y install python-setuptools && sudo easy_install pip  && sudo pip install docker-compose
 ```
 
-## [4]. 建立一個Docker Compose主要檔案
+## [4. 建立一個Docker Compose主要檔案]
 
 在本例中使用者資料夾位於 ```volumio``` 資料夾, 依照以下指示建立新資料夾並且進到該資料夾中.
 
@@ -156,7 +156,7 @@ services:
 
 使用 ```CTRL+X``` 儲存並且關閉檔案.
 
-## [5]. 啟動Homebridge
+## [5. 啟動Homebridge]
 
 在Docker container容器中啟動Homebridge, 執行以下指令:
 
@@ -177,7 +177,7 @@ docker-compose logs -f
 
 ![Octocat](img/homebridge.png)
 
-## [6]. 管理Homebridge
+## [6. 管理Homebridge]
 
 在本地電腦端開啟瀏覽器, 輸入下列網址並前往 ```http://<樹莓派ip>:8080```, 例: 我安裝於Volumio系統中, 我可以透過 ```http://volumio.local:8080``` 打開Homebridge管理頁面, 在此管理頁面中無論是安裝, 移除或升級任何外掛, 都務必要確保 ```config.json``` 檔案的正確性, 並且無論做任一項動作, 都必須將Homebridge重啟.
 
