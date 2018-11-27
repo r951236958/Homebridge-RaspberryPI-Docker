@@ -12,16 +12,16 @@
 
 **安裝流程**
 
-1. [移除舊版本Docker](#1)
-2. [安裝Docker](#2)
-   2.1. [更新apt套件](#2.1)
-   2.2. [新增GPG密鑰簽署](#2.2)
-   2.3. [新增來源](#2.3)
-   2.4. [更新來源開始安裝](#2.4)
-3. [安裝Docker Compose](#3)
-4. [建立一個Docker Compose主要檔案](#4)
-5. [啟動Homebridge](#5)
-6. [管理Homebridge](#6)
+* [1. 移除舊版本Docker](#1)
+* [2. 安裝Docker](#2)
+   - [2.1. 更新apt套件](#2.1)
+   - [2.2. 新增GPG密鑰簽署](#2.2)
+   - [2.3. 新增來源](#2.3)
+   - [2.4. 更新來源開始安裝](#2.4)
+* [3. 安裝Docker Compose](#3)
+* [4. 建立一個Docker Compose主要檔案](#4)
+* [5. Ω啟動Homebridge](#5)
+* [6. 管理Homebridge](#6)
 
 ## 資料來源:
 
@@ -42,7 +42,7 @@ sudo apt-get remove docker docker-engine docker.io
 
 `安裝方式一`
 
-<h3 id="1.1">2.1. 更新apt套件</h3>
+<h3 id="2.1">2.1. 更新apt套件</h3>
 
 ```
 sudo apt-get update
@@ -179,7 +179,7 @@ docker-compose logs -f
 
 ![Octocat](img/homebridge.png)
 
-<h2 id="5">6. 管理Homebridge</h2>
+<h2 id="6">6. 管理Homebridge</h2>
 
 在本地電腦端開啟瀏覽器, 輸入下列網址並前往 ```http://<樹莓派ip>:8080```, 例: 我安裝於Volumio系統中, 我可以透過 ```http://volumio.local:8080``` 打開Homebridge管理頁面, 在此管理頁面中無論是安裝, 移除或升級任何外掛, 都務必要確保 ```config.json``` 檔案的正確性, 並且無論做任一項動作, 都必須將Homebridge重啟.
 
