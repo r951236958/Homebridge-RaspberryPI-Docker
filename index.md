@@ -223,6 +223,15 @@ docker-compose up -d
 docker-compose exec homebridge sh
 ```
 
+Docker
+
+ - /bin/bash : 取決於容器本體建構方式. Options: ```/bin/bash```, ```/bin/ash```, ```/bin/sh```
+ - ContainerName : 容器的名稱
+
+```
+docker exec -i -t ContainerName /bin/bash
+```
+
 [docker-ce-link]: https://docs.docker.com/install/linux/docker-ce/debian/#install-docker-ce-1
 [docker-compose-link]: https://docs.docker.com/compose/overview/
 [docker-homebridge-link]: https://hub.docker.com/r/oznu/homebridge/
