@@ -18,6 +18,7 @@
 裡面可以建立幾個預載使用(WiFi, SSH...)的檔案夾, 細則看官方文檔說明
 
 [預載設置](https://github.com/home-assistant/hassos/blob/dev/Documentation/configuration.md)
+
 [網路](https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md)
 
 ## HomeAssistant設置
@@ -47,12 +48,10 @@ media_player:
     client_secret: YOUR_CLIENT_SECRET
 ```
 
-先到Spotify開發者網頁中找到自己建立的App, 把Clien ID跟Client Secret填到對應位置
+先到[Spotify開發者網頁](https://developer.spotify.com/dashboard/applications)中找到自己建立的App, 
+把Clien ID跟Client Secret填到對應位置
+
 再編輯App設定中的URl: ```http://IP_or_Domain:8123/api/spotify```
-
-[App開發網站](https://developer.spotify.com/dashboard/applications)
-
-[官方文檔](https://www.home-assistant.io/components/media_player.spotify/)
 
 如果發現callback頁面無效, 記得要在```Configuration.yaml```
 把```http:```啟用```trusted_networks:``` (```base_url:```也順便設置一下)
