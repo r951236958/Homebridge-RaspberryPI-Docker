@@ -1,0 +1,7 @@
+{
+    "type": 1,
+    "title": "Portainer",
+    "description": "an easy way to manage Docker.",
+    "image": "portainer:latest",
+    "hostname": "portainer",
+  }
