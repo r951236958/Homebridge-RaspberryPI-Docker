@@ -14,6 +14,10 @@ Homebridge On RaspberryPi &amp; Docker
 
 於是將內容簡化成自己看得懂的文字與替換成自己系統角色, 來使自己方便找到筆記, 然後再將Homebridge動起來.
 
+## 樹莓派
 
+一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
+
+[rpi-link]: ./rpi-cli.md
 [docker-homebridge-link]: https://hub.docker.com/r/oznu/homebridge/
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge.wiki.git
