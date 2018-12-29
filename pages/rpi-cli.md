@@ -8,7 +8,7 @@
 
 在系統中新增某個SERVICE服務, 使用 ```sudo nano /etc/systemd/system/SERVICE.service``` 編輯文件, 參考homeassistant範例.
 
-- ***SERVICE***要自行替換為新服務名稱
+- **SERVICE** 要自行替換為新服務名稱
 - 其中```ExecStart```中的路徑因服務所在位置不同, 需視情況替換.
 
 ```
