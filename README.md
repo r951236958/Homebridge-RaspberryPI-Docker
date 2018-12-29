@@ -18,6 +18,6 @@ Homebridge On RaspberryPi &amp; Docker
 
 一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
 
-[rpi-link]: ./rpi-cli.md
+[rpi-link]: pages/rpi-cli.md
 [docker-homebridge-link]: https://hub.docker.com/r/oznu/homebridge/
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge.wiki.git
