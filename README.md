@@ -40,6 +40,10 @@ sudo apt-get install docker-ce
 sudo usermod -aG docker pi && logout
 ```
 
+## 安裝Hassio
+
+[前往此連結][install-hassio-link]
+
 ## 安裝Docker Compose
 
 有了 [Docker Compose][docker-compose-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
@@ -102,3 +106,4 @@ docker-compose logs -f container_name (or container_ID)
 [docker-compose-link]: https://docs.docker.com/compose/
 [docker-homebridge-link]: https://github.com/oznu/docker-homebridge
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi
+[install-hassio-link]: install_hassio.md
