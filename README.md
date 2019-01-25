@@ -1,6 +1,4 @@
-# RaspberryPi-Docker-Homebridge
-
-Homebridge On RaspberryPi &amp; Docker
+# Docker on Raspberry Pi
 
 ## 如何在樹莓派上透過啟動 ```Docker``` 容器, 並且成功運行 ```Homebridge```
 
@@ -14,7 +12,7 @@ Homebridge On RaspberryPi &amp; Docker
 
 於是將內容簡化成自己看得懂的文字與替換成自己系統角色, 來使自己方便找到筆記, 然後再將Homebridge動起來.
 
-## 樹莓派
+### 樹莓派指令備忘錄
 
 一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
 
