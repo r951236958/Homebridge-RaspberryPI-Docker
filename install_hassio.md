@@ -82,4 +82,8 @@ docker logs -f Conatiner_Name
 
 ## 其他
 
+hassio路徑: `/use/share/hassio`
+homeassistant路徑： `/use/share/hassio/homeassistant`
+hassio-supervisor路徑: `/etc/systemd/system/hassio-supervisor`
+
 後續有想到再補上
