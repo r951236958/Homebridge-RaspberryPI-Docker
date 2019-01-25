@@ -16,7 +16,9 @@
 
 一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
 
-## Docker安裝指南
+## Docker CE for Debian 安裝指南
+
+[Docker CE官網連結][docker-ce-debian-link]
 
 依下列步驟，從官方來源安裝
 
@@ -96,5 +98,7 @@ docker-compose logs -f container_name (or container_ID)
 ```
 
 [rpi-link]: pages/rpi-cli.md
+[docker-ce-debian-link]: https://docs.docker.com/install/linux/docker-ce/debian/
+[docker-compose-link]: https://docs.docker.com/compose/
 [docker-homebridge-link]: https://github.com/oznu/docker-homebridge
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi
