@@ -10,7 +10,7 @@
 [oznu/homebridge][docker-homebridge-link] 的詳細說明中的 **[Wiki頁面][docker-homebridge-wiki]** ,
 所載述的的步驟說明與內容: 使樹莓派玩家學會如何啟動Docker containers, 並在容器中啟動Homebridge.
 
-於是將內容簡化成自己看得懂的文字與替換成自己系統角色, 來使自己方便找到筆記, 然後再將Homebridge動起來.
+於是將內容轉化成自己比較常用的方式與系統環境, 並將這些資料記錄下來, 往後要查詢一些資料就花一堆時間在找了
 
 ### 樹莓派指令備忘錄
 
@@ -23,13 +23,13 @@
 依下列步驟，從官方來源安裝
 
 ```
-# Add Docker’s official GPG key:
+# 新增 Docker 官方 GPG key:
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
 
-# Use the following command to set up the stable repository:
+# 使用以下指令來新增 穩定版來源
 echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
-# Update sources and install docker
+# 更新來源並安裝
 sudo apt-get update
 sudo apt-get install docker-ce
 ```
