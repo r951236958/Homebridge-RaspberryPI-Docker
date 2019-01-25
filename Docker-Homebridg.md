@@ -104,11 +104,11 @@ sudo sh get-docker.sh
 
 ![Octocat](img/install_docker-ce.png)
 
->在群組 ```docker``` 新增使用者 ```username``` . 
->因本次系統使用 ```Volumio``` 系統, 而使用者名稱為 `volumio`
+>在非root情況下使用 ```docker``` 指令. 
+>使用 ```$ id``` 查詢使用者資料, 替換 `your-user`
 
 ```
-sudo usermod -aG docker volumio && logout
+sudo usermod -aG docker your-user && logout
 ```
 
 ## [3]. 安裝Docker Compose
