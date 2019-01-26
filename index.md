@@ -2,23 +2,20 @@
 ---
 # Docker on Raspberry Pi
 
-如何在樹莓派上安裝Docker CE
+## 如何在樹莓派上安裝Docker CE
 
-## 在樹莓派上透過啟動 `Docker` 容器, 並且成功運行 `Homebridge`
+- 在樹莓派上透過啟動 `Docker` 容器, 並且成功運行 `Homebridge`
+- 您可以在前往 [oznu/docker-homebridge][docker-homebridge-link] , 您將會在其中獲得相當豐富的知識與學會如何安裝並且使用它們.
 
-您可以在前往 [oznu/docker-homebridge][docker-homebridge-link] , 您將會在其中獲得相當豐富的知識與學會如何安裝並且使用它們.
-
-> 這是一篇中文化簡易備忘錄
+## 這是一篇中文化簡易備忘錄
 
 - [oznu/homebridge][docker-homebridge-link] 的詳細說明中的 **[Wiki頁面][docker-homebridge-wiki]** ,
 - 所載述的的步驟說明與內容: 使樹莓派玩家學會如何啟動Docker containers, 並在容器中啟動Homebridge.
 - 於是將內容轉化成自己比較常用的方式與系統環境, 並將這些資料記錄下來, 往後要查詢一些資料就花一堆時間在找了
 
-> 樹莓派指令備忘錄
+> 樹莓派指令備忘錄: [Raspberry Pi Command Line Note][rpi-link]
 
-- 一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
-
-## Docker CE for Debian 安裝指南
+### Docker CE for Debian 安裝指南
 
 [Docker CE官網連結][docker-ce-debian-link]
 
@@ -42,11 +39,11 @@ sudo apt-get install docker-ce
 sudo usermod -aG docker pi && logout
 ```
 
-## 安裝Hassio
+### 安裝Hassio
 
 [前往此連結][install-hassio-link]
 
-## 安裝Docker Compose
+### 安裝Docker Compose
 
 有了 [Docker Compose][docker-compose-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
 
@@ -60,7 +57,7 @@ sudo apt-get -y install python-setuptools && sudo easy_install pip  && sudo pip 
 mkdir /home/pi/NAME_IT
 cd /home/pi/NAME_IT
 ```
-然後使用 ```nano``` 編寫並建立名為 ```docker-compose.yml``` 的檔案.
+然後使用 `nano` 編寫並建立名為 `docker-compose.yml` 的檔案.
 
 ```
 nano docker-compose.yml
@@ -86,7 +83,7 @@ volumes:
   portainer_data:
 ```
 
-使用 ```CTRL+X``` 儲存並且關閉檔案.
+使用 `CTRL+X` 儲存並且關閉檔案.
 
 在背景啟動Container容器, 執行以下指令:
 
@@ -94,8 +91,8 @@ volumes:
 docker-compose up -d
 ```
 
-* 這個指令將會從 [oznu/homebridge][docker-homebridge-link] 下載最新版本的docker image.
-* 使用 `-d` 是為了使docker-compose在背景啟動.
+- 這個指令將會從 [oznu/homebridge][docker-homebridge-link] 下載最新版本的docker image.
+- 使用 `-d` 是為了使docker-compose在背景啟動.
 
 查看log有無異常, Portainer是否成功運作中:
 
@@ -110,4 +107,3 @@ docker-compose logs -f container_name (or container_ID)
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi
 [install-hassio-link]: install_hassio.md
 
-f
