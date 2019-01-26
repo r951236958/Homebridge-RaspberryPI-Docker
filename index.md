@@ -1,23 +1,22 @@
 ---
 ---
-
 # Docker on Raspberry Pi
 
-## 如何在樹莓派上透過啟動 ```Docker``` 容器, 並且成功運行 ```Homebridge```
+如何在樹莓派上安裝Docker CE
+
+## 在樹莓派上透過啟動 `Docker` 容器, 並且成功運行 `Homebridge`
 
 您可以在前往 [oznu/docker-homebridge][docker-homebridge-link] , 您將會在其中獲得相當豐富的知識與學會如何安裝並且使用它們.
 
+> 這是一篇中文化簡易備忘錄
 
-### 這是一篇中文化簡易備忘錄
+- [oznu/homebridge][docker-homebridge-link] 的詳細說明中的 **[Wiki頁面][docker-homebridge-wiki]** ,
+- 所載述的的步驟說明與內容: 使樹莓派玩家學會如何啟動Docker containers, 並在容器中啟動Homebridge.
+- 於是將內容轉化成自己比較常用的方式與系統環境, 並將這些資料記錄下來, 往後要查詢一些資料就花一堆時間在找了
 
-[oznu/homebridge][docker-homebridge-link] 的詳細說明中的 **[Wiki頁面][docker-homebridge-wiki]** ,
-所載述的的步驟說明與內容: 使樹莓派玩家學會如何啟動Docker containers, 並在容器中啟動Homebridge.
+> 樹莓派指令備忘錄
 
-於是將內容轉化成自己比較常用的方式與系統環境, 並將這些資料記錄下來, 往後要查詢一些資料就花一堆時間在找了
-
-### 樹莓派指令備忘錄
-
-一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
+- 一些常用的系統指令: [Raspberry Pi Command Line Note][rpi-link]
 
 ## Docker CE for Debian 安裝指南
 
