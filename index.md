@@ -39,9 +39,7 @@ sudo apt-get install docker-ce
 sudo usermod -aG docker pi && logout
 ```
 
-### 安裝Hassio
-
-[前往此連結][install-hassio-link]
+> 安裝完 `Docker` , 後續要繼續安裝Homeassistant/Hassio, [前往此連結][install-hassio-link]查看安裝說明.
 
 ### 安裝Docker Compose
 
