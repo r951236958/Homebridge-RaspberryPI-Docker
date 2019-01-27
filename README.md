@@ -106,4 +106,4 @@ docker-compose logs -f container_name (or container_ID)
 [docker-compose-link]: https://docs.docker.com/compose/
 [docker-homebridge-link]: https://github.com/oznu/docker-homebridge
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi
-[install-hassio-link]: install_hassio.md
+[install-hassio-link]: docs/install_hassio.md
