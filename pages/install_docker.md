@@ -52,7 +52,7 @@ apt-cache madison docker docker-compose |    1.8.0-2 | http://raspbian.raspberry
 
 ## 安裝 Portainer
 
-### 垃取 Portainer 鏡像檔
+### 拉取 Portainer 鏡像檔
 
 ```
 docker pull portainer/portainer
