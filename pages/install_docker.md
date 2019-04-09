@@ -5,7 +5,7 @@
 ## 如何在樹莓派上安裝Docker CE & Docker Compose
 
 - 在樹莓派上透過啟動 `Docker` 容器, 並且成功運行 `Homebridge`
-- 您可以在前往 [Docker官網的快速建構中][docker-ce-Rasbian-link] , 學會如何安裝並且使用它們.
+- 您可以在前往 [Docker官網的快速建構中][docker-ce-rasbian-link] , 學會如何安裝並且使用它們.
 
 ### 第一步安裝 Docker CE
 
@@ -193,7 +193,7 @@ docker-compose logs -f container_name (or container_ID)
 ```
 
 [rpi-link]: pages/rpi-cli.md
-[docker-ce-Rasbian-link]: https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script
+[docker-ce-rasbian-link]: https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script
 [docker-compose-link]: https://docs.docker.com/compose/
 [docker-homebridge-link]: https://github.com/oznu/docker-homebridge
 [docker-homebridge-wiki]: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi
