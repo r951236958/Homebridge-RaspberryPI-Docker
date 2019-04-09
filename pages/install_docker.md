@@ -87,7 +87,7 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 -x
 
 # 儲存路徑與檔名格式
--o '/media/SANDISK/%(uploader_id)s/%(title)s.%(ext)s'
+-o '/media/SANDISK/SCDL/%(uploader)s/%(title)s.%(ext)s'
 
 # 新增ID3標籤 
 --add-metadata
@@ -109,88 +109,7 @@ sudo youtube-dl --config-location /etc/youtube-dl.conf https://soundcloud.com/dj
 
 > 樹莓派指令備忘錄: [Raspberry Pi Command Line Note][rpi-link]
 
-### Docker CE for Raspbian 安裝指南
 
-[Docker CE官網連結][docker-ce-debian-link]
-
-依下列步驟，從官方來源安裝
-
-```
-# 新增 Docker 官方 GPG key:
-curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
-
-# 使用以下指令來新增 穩定版來源
-echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch stable" | sudo tee /etc/apt/sources.list.d/docker.list
-
-# 更新來源並安裝
-sudo apt-get update
-sudo apt-get install docker-ce
-```
-
-將使用者 `pi` 新增至docker群組中並登出
-
-```
-sudo usermod -aG docker pi && logout
-```
-
-> 安裝完 `Docker` , 後續要繼續安裝Homeassistant/Hassio, [前往此連結][install-hassio-link]查看安裝說明.
-
-### 安裝Docker Compose
-
-有了 [Docker Compose][docker-compose-link] 之後, 安裝於Docker containers中變得相當容易, 首次安裝需透過Python與一些套件來完成安裝它:
-
-```
-sudo apt-get -y install python-setuptools && sudo easy_install pip  && sudo pip install docker-compose
-```
-
-在家目錄使用者內新增一個所需的資料夾, 依照以下指示建立新資料夾並且進到該資料夾中.
-
-```
-mkdir /home/pi/NAME_IT
-cd /home/pi/NAME_IT
-```
-然後使用 `nano` 編寫並建立名為 `docker-compose.yml` 的檔案.
-
-```
-nano docker-compose.yml
-```
-
-內容範例以Portainer作為示範:
-
-```js
-version: '2'
-
-services:
-  portainer:
-    image: portainer/portainer
-    command: -H unix:///var/run/docker.sock
-    restart: always
-    ports:
-      - 9000:9000
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-
-volumes:
-  portainer_data:
-```
-
-使用 `CTRL+X` 儲存並且關閉檔案.
-
-在背景啟動Container容器, 執行以下指令:
-
-```
-docker-compose up -d
-```
-
-- 這個指令將會從 [oznu/homebridge][docker-homebridge-link] 下載最新版本的docker image.
-- 使用 `-d` 是為了使docker-compose在背景啟動.
-
-查看log有無異常, Portainer是否成功運作中:
-
-```
-docker-compose logs -f container_name (or container_ID)
-```
 
 [rpi-link]: pages/rpi-cli.md
 [docker-ce-rasbian-link]: https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script
