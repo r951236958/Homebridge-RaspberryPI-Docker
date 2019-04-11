@@ -13,27 +13,28 @@
 
 一些常忘記的備忘錄
 ```sh
-# uname -m (查詢CPU)
-# df -h (查詢SD卡容量)
-# apt-get update (更新遠端伺服器套件清單)
-# apt-get upgrade (更新已安裝套件)
-# wget URL (適用於一般小型檔案或文件下載)
-# curl -I URL -o /path/to ([-I]可讀取網頁header, [-o]檔案儲放路徑)
+uname -m (查詢CPU)
+df -h (查詢SD卡容量)
+apt-get update (更新遠端伺服器套件清單)
+apt-get upgrade (更新已安裝套件)
+wget URL (適用於一般小型檔案或文件下載)
+curl -I URL -o /path/to ([-I]可讀取網頁header, [-o]檔案儲放路徑)
 
 #### SSH密鑰 ####
 產生SSH密鑰
-# ssh-keygen -t rsa -b 4096 -C "example@example.com"
+ssh-keygen -t rsa -b 4096 -C "example@example.com"
 
-透過SSH密鑰登入遠端伺服器驗證, 往後SSH就不用再輸入密碼
-# ssh-copy-id USERNAME@SSH_IP_ADDRESS
+# 透過SSH密鑰登入遠端伺服器驗證, 往後SSH就不用再輸入密碼
+ssh-copy-id USERNAME@SSH_IP_ADDRESS
 
-將SSH密鑰加入ssh-agent
-1. 在後台啟動ssh-agent
-# eval "$(ssh-agent -s)"
+# 將SSH密鑰加入ssh-agent
+
+## 在後台啟動ssh-agent
+eval "$(ssh-agent -s)"
 > Agent pid 59566
 
-2. SSH密鑰添加到ssh-agent
-# ssh-add ~/.ssh/id_rsa
+## SSH密鑰添加到ssh-agent
+ssh-add ~/.ssh/id_rsa
 ```
 
 ### 新增系統服務
@@ -61,13 +62,13 @@ WantedBy=multi-user.target
 新增完文件後要先告知系統, 知道他知道有新服務
 
 ```sh
-# sudo systemctl --system daemon-reload
+sudo systemctl --system daemon-reload
 ```
 
 在系統啟動時, 自動啟動服務
 
 ```sh
-# sudo systemctl start SERVICE
+sudo systemctl start SERVICE
 ```
 
 同理, 要暫停、重啟的話, 則改為```stop```或```restart``` 查看狀態```status```
@@ -75,33 +76,25 @@ WantedBy=multi-user.target
 要以root權限執行
 ```sh
 # service SERVICE restart
-
-# systemctl [OPTIONS...] {COMMAND} ... SERVICE
+systemctl [OPTIONS...] {COMMAND} ... SERVICE
 
 {COMMAND}
-    start   啟動服務
-    stop    停止服務
-    status  查詢狀態
+    start   #啟動服務
+    stop    #停止服務
+    status  #查詢狀態
 ```
 
 服務啟動後```status```只會顯示出短短幾行紀錄, 如果要查看完整log則要使用指令```journalctl```
 
-顯示日誌輸出
-
 ```sh
-# sudo journalctl -f -u SERVICE
-```
+# 顯示日誌輸出
+sudo journalctl -f -u SERVICE
 
-只查看錯誤日誌
+# 只查看錯誤日誌
+sudo journalctl -f -u SERVICE | grep -i 'error'
 
-```sh
-# sudo journalctl -f -u SERVICE | grep -i 'error'
-```
-
-系統服務重啟後顯示日誌
-
-```sh
-# sudo systemctl restart SERVICE && sudo journalctl -f -u SERVICE
+# 系統服務重啟後顯示日誌
+sudo systemctl restart SERVICE && sudo journalctl -f -u SERVICE
 ```
 
 ---
@@ -142,20 +135,20 @@ WantedBy=multi-user.target
 
 ### 一般常用的權限賦予有以下幾種
 
-```
--rw------- (600) 只有使用者具有 「讀/寫」 權限
+```sh
+-rw------- (600) #只有使用者具有 「讀/寫」 權限
 
--rw-r--r-- (644) 表示使用者具有 「讀/寫」 權限, 同群組與其他使用者只有 「讀」 的權限
+-rw-r--r-- (644) #表示使用者具有 「讀/寫」 權限, 同群組與其他使用者只有 「讀」 的權限
 
--rwx------ (700) 只有使用者具有 「讀/寫/執行」 權限
+-rwx------ (700) #只有使用者具有 「讀/寫/執行」 權限
 
--rwxr-xr-x (755) 表示使用者具有 「讀/寫/執行」 權限, 同群組與其他使用者具有 「讀/寫」 權限
+-rwxr-xr-x (755) #表示使用者具有 「讀/寫/執行」 權限, 同群組與其他使用者具有 「讀/寫」 權限
 
--rwx--x--x (711) 表示使用者具有 「讀/寫/執行」 權限, 同群組與其他使用者具有 執行 權限
+-rwx--x--x (711) #表示使用者具有 「讀/寫/執行」 權限, 同群組與其他使用者具有 執行 權限
 
--rw-rw-rw- (666) 所有使用者具有 「讀/寫」 權限
+-rw-rw-rw- (666) #所有使用者具有 「讀/寫」 權限
 
--rwxrwxrwx (777) 所有使用者具有 「讀/寫/執行」 權限
+-rwxrwxrwx (777) #所有使用者具有 「讀/寫/執行」 權限
 ```
 
 - 資料夾通常給予755的權限
@@ -169,55 +162,57 @@ WantedBy=multi-user.target
 
 chgrp指令說明
 ```sh
-# chgrp [OPTION]... GROUP FILE...
-# chgrp [OPTION]... GROUP FILE... chgrp [OPTION]... --reference=RFILE FILE...
+chgrp [OPTION]... GROUP FILE...
+chgrp [OPTION]... GROUP FILE... chgrp [OPTION]... --reference=RFILE FILE...
 
 [OPTION]
-    -R, --recursive 以遞歸的方式變更，包含目錄內的子目錄與檔案
+    -R, --recursive #以遞歸的方式變更，包含目錄內的子目錄與檔案
 
 範例：
-root@linux/:# chgrp users test-file.txt
-root@linux/:# ls -l
+root@linux/: chgrp users test-file.txt
+root@linux: ls -l
 -rw-r--r--  1 root users 68495 Jun 25 08:53 test-file.txt
-root@linux/:# chgrp testing 
-chgrp: invalid group name `testing' # 發生錯誤,  沒有testing這個群組
+
+root@linux: chgrp testing 
+chgrp: invalid group name `testing' #發生錯誤,  沒有testing這個群組
 ```
 
 chown指令說明
 ```sh
-$ chown [OPTION]... [OWNER][:[GROUP]] FILE...
+chown [OPTION]... [OWNER][:[GROUP]] FILE...
 
 [OPTION]
-    -R, --recursive 以遞歸的方式變更，包含目錄內的子目錄與檔案
+    -R, --recursive #以遞歸的方式變更，包含目錄內的子目錄與檔案
 
 範例:
-root@linux/:# chown [-R] 帳號名稱 檔案或目錄
-root@linux/:# chown [-R] 帳號名稱:群組名稱/檔案或目錄
-root@linux/:#
-root@linux/:# chown bin test-file.txt
-root@linux/:# ls -l
+root@linux: chown [-R] 帳號名稱 檔案或目錄
+root@linux: chown [-R] 帳號名稱:群組名稱/檔案或目錄
+root@linux: chown bin test-file.txt
+root@linux: ls -l
 -rw-r--r--  1 bin  users 68495 Jun 25 08:53 test-file.txt
-root@linux/:# chown root:root test-file.txt
-root@linux/:# ls -l
+
+root@linux: chown root:root test-file.txt
+root@linux: ls -l
 -rw-r--r--  1 root root 68495 Jun 25 08:53 test-file.txt
 ```
 
 chmod指令說明
 
 ```sh
-$ chmod [OPTION]... MODE[,MODE]... FILE...
+chmod [OPTION]... MODE[,MODE]... FILE...
 
 [OPTION]
-    -R, --recursive 以遞歸的方式變更，包含目錄內的子目錄與檔案
-    MODE: 就是剛剛提到的數字類型的權限屬性，為 rwx 屬性數值的相加。
+    -R, --recursive #以遞歸的方式變更，包含目錄內的子目錄與檔案
+    MODE #就是剛剛提到的數字類型的權限屬性，為 rwx 屬性數值的相加。
 
 範例:
-root@linux/:# chmod [-R] 檔案或目錄
-root@linux/:# ls -al .bashrc
+root@linux: chmod [-R] 檔案或目錄
+root@linux: ls -al .bashrc
 -rw-r--r--  1 root root 395 Jul  4 11:45 .bashrc
-root@linux/:# chmod 777 .bashrc
-root@linux/:# ls -al .bashrc
+
+root@linux: chmod 777 .bashrc
+root@linux: ls -al .bashrc
 -rwxrwxrwx  1 root root 395 Jul  4 11:45 .bashrc
 
-root@linux/:# chmod a+x filename #即可讓該程式擁有執行權限
+root@linux: chmod a+x filename #即可讓該程式擁有執行權限
 ```
