@@ -3,6 +3,10 @@
 
 # 樹莓派上安裝Hassio
 
+## 事前準備
+
+使用指令`sudo apt-get install -y python3 python3-pip` 安裝 `python3`, `pip`
+
 ## 必要條件
 
 已經安裝好系統的樹莓派1台以外, 還要安裝下列相依套件
@@ -27,10 +31,21 @@ docker pull homeassistant/raspberrypi3-homeassistant
 必須以 `root` 身分執行, 所以先 ```sudo su ```
 
 ```
-curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s -- -m raspberrypi3
+curl -sL https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh | bash -s -- -m raspberrypi3
 ```
 
 然後執行完看到 ```Run Hass.io ```就完成了!
+
+```sh
+pi@moode:~ $ sudo su
+root@moode:/home/pi# curl -sL https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh | bash -s -- -m raspberrypi3
+[Warning] No AppArmor support on host.
+[Warning] No NetworkManager support on host.
+[Info] Install supervisor Docker container
+[Info] Install supervisor startup scripts
+Created symlink /etc/systemd/system/multi-user.target.wants/hassio-supervisor.service → /etc/systemd/system/hassio-supervisor.service.
+[Info] Run Hass.io
+```
 
 ### 系統服務 `systemctl` 指令
 
